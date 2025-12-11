@@ -1,0 +1,363 @@
+<!-- cart.html -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>HIGHCLASS — Cart</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Tailwind CDN for prototype -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Shared global styles -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <!-- Dark theme shell -->
+  <body class="min-h-screen bg-black text-white">
+    <!-- ==========================
+         Global Site Header
+    =========================== -->
+    <header class="border-b border-white/10 bg-black/80 backdrop-blur">
+      <div
+        class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3"
+      >
+        <!-- Brand logo / lockup -->
+        <a href="index.html" class="flex items-center gap-2 group">
+          <div
+            class="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-orange-500 to-red-600 text-xs font-bold text-white shadow-lg"
+          >
+            HC
+          </div>
+
+          <div class="flex items-baseline gap-2">
+            <span
+              class="hc-brand-main text-sm font-semibold uppercase tracking-[0.3em]"
+            >
+              HIGHCLASS
+            </span>
+            <span class="hc-brand-slash text-lg text-orange-500">/</span>
+            <span
+              class="hc-brand-sub text-[0.7rem] font-medium uppercase tracking-[0.25em] text-slate-400"
+            >
+              METAWEAR
+            </span>
+          </div>
+        </a>
+
+        <!-- Center: search bar -->
+        <form class="relative hidden flex-1 max-w-sm md:block">
+          <input
+            type="search"
+            placeholder="Search products…"
+            class="w-full rounded-full border border-white/10 bg-white/5 px-9 py-1.5 text-xs text-white placeholder:text-slate-400 focus:border-orange-500 focus:outline-none"
+          />
+          <span
+            class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-xs"
+          >
+            🔍
+          </span>
+        </form>
+
+        <!-- Right side: nav -->
+        <nav class="flex items-center gap-3 text-[0.7rem] font-medium">
+          <a href="index.html" class="hidden text-slate-300 hover:text-orange-400 md:inline">
+            Home
+          </a>
+          <a href="sub-category.html" class="text-slate-300 hover:text-orange-400">
+            Shop
+          </a>
+          <a href="category.html" class="hidden text-slate-300 hover:text-orange-400 md:inline">
+            Categories
+          </a>
+          <a href="products.html" class="hidden text-slate-300 hover:text-orange-400 md:inline">
+            Products
+          </a>
+          <a href="about.html" class="hidden text-slate-300 hover:text-orange-400 md:inline">
+            About
+          </a>
+          <a href="faq.html" class="hidden text-slate-300 hover:text-orange-400 md:inline">
+            FAQ
+          </a>
+          <a href="contact.html" class="hidden text-slate-300 hover:text-orange-400 md:inline">
+            Contact
+          </a>
+          <a href="home.html" class="hidden text-slate-300 hover:text-orange-400 md:inline">
+            Home
+          </a>
+
+          <!-- Cart & account -->
+          <a href="cart.html" class="text-slate-100">
+            Cart
+          </a>
+          <a href="account.html" class="hidden text-slate-300 hover:text-red-400 md:inline">
+            Account
+          </a>
+
+          <!-- Orders + payment (demo) -->
+          <a
+            href="orders.html"
+            class="hidden rounded-full bg-red-600 px-3 py-1 text-[0.65rem] font-semibold text-white hover:bg-red-700 md:inline"
+          >
+            Orders
+          </a>
+          <a
+            href="payment.html"
+            class="hidden rounded-full bg-red-600 px-3 py-1 text-[0.65rem] font-semibold text-white hover:bg-red-700 md:inline"
+          >
+            Payment
+          </a>
+
+          <!-- Login CTA -->
+          <a
+            href="login.html"
+            class="rounded-full bg-orange-500 px-4 py-1.5 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-black hover:bg-orange-400"
+          >
+            Login
+          </a>
+        </nav>
+      </div>
+
+      <!-- Mobile search bar -->
+      <div class="border-t border-white/10 px-4 pb-3 pt-2 md:hidden">
+        <form class="relative">
+          <input
+            type="search"
+            placeholder="Search products…"
+            class="w-full rounded-full border border-white/10 bg-white/5 px-9 py-2 text-xs text-white placeholder:text-slate-400 focus:border-orange-500 focus:outline-none"
+          />
+          <span
+            class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-xs"
+          >
+            🔍
+          </span>
+        </form>
+      </div>
+    </header>
+
+    <!-- ==========================
+         Main Cart Content
+    =========================== -->
+    <main class="px-4 py-12">
+      <div class="mx-auto max-w-6xl">
+        <!-- Page header -->
+        <header
+          class="mb-8 flex flex-col gap-3 border-b border-white/10 pb-4 md:flex-row md:items-end md:justify-between"
+        >
+          <div>
+            <p
+              class="text-xs uppercase tracking-[0.25em] text-gray-500"
+            >
+              Cart
+            </p>
+            <h1 class="text-3xl font-bold md:text-4xl">
+              Your HIGHCLASS bag
+            </h1>
+            <p class="mt-1 text-sm text-gray-400">
+              Review your selections before checkout.
+            </p>
+          </div>
+          <p id="hc-cart-count" class="text-xs text-gray-500">
+            0 items in cart
+          </p>
+        </header>
+
+        <div
+          class="grid gap-8 md:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]"
+        >
+          <!-- Cart Items list -->
+          <section id="hc-cart-items" class="space-y-4">
+            <!-- JS injects items here -->
+          </section>
+
+          <!-- Order summary / totals -->
+          <aside
+            class="h-fit rounded-2xl bg-gray-950/90 p-6 shadow-lg ring-1 ring-white/5 md:sticky md:top-8"
+          >
+            <h2 class="text-lg font-semibold">Order summary</h2>
+
+            <div class="mt-4 space-y-2 text-sm">
+              <div class="flex justify-between text-gray-300">
+                <span>Subtotal</span>
+                <span id="hc-subtotal">₹0</span>
+              </div>
+              <div class="flex justify-between text-xs text-gray-400">
+                <span>Shipping</span>
+                <span id="hc-shipping">Free</span>
+              </div>
+              <div class="flex justify-between text-xs text-gray-500">
+                <span>Taxes</span>
+                <span>Calculated at checkout</span>
+              </div>
+            </div>
+
+            <div class="mt-4 border-t border-white/10 pt-4">
+              <div class="flex items-center justify-between">
+                <span class="text-sm font-medium text-gray-200">
+                  Total
+                </span>
+                <span
+                  id="hc-total"
+                  class="text-lg font-semibold text-red-500"
+                >
+                  ₹0
+                </span>
+              </div>
+              <p class="mt-1 text-[11px] text-gray-500">
+                Prices in INR · Secure checkout.
+              </p>
+            </div>
+
+            <!-- Checkout button links to checkout page -->
+            <a
+              id="hc-checkout-link"
+              href="checkout.html"
+              class="mt-6 inline-flex w-full items-center justify-center rounded-full bg-red-600 px-4 py-3 text-sm font-semibold tracking-wide text-white transition hover:bg-red-700 disabled:cursor-not-allowed disabled:bg-gray-700"
+            >
+              Proceed to Checkout
+            </a>
+
+            <a
+              href="sub-category.html"
+              class="mt-3 inline-flex w-full items-center justify-center rounded-full border border-white/10 py-2 text-xs font-medium uppercase tracking-[0.18em] text-gray-300 transition hover:border-red-500 hover:text-red-400"
+            >
+              Continue shopping
+            </a>
+          </aside>
+        </div>
+      </div>
+    </main>
+
+    <!-- ==========================
+         Cart Logic (Front-end only)
+    =========================== -->
+    <script>
+      // Demo cart data (for prototype)
+      let cart = [
+        {
+          id: 1,
+          name: "Classic Red Shirt",
+          price: 999,
+          qty: 1,
+          img: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=600&q=80",
+        },
+        {
+          id: 2,
+          name: "Premium Black T‑Shirt",
+          price: 1299,
+          qty: 2,
+          img: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80",
+        },
+      ];
+
+      const itemsRoot = document.getElementById("hc-cart-items");
+      const countEl = document.getElementById("hc-cart-count");
+      const subtotalEl = document.getElementById("hc-subtotal");
+      const totalEl = document.getElementById("hc-total");
+      const shippingEl = document.getElementById("hc-shipping");
+      const checkoutLink = document.getElementById("hc-checkout-link");
+
+      // Format numbers as INR
+      function formatINR(value) {
+        return value.toLocaleString("en-IN");
+      }
+
+      // Render cart items and totals
+      function renderCart() {
+        if (!cart.length) {
+          itemsRoot.innerHTML =
+            '<div class="rounded-2xl border border-dashed border-white/10 bg-gray-950/70 p-8 text-center"><p class="text-sm text-gray-400">Your cart is empty. Start exploring the latest HIGHCLASS drops.</p></div>';
+        } else {
+          itemsRoot.innerHTML = cart
+            .map(
+              (item) => `
+              <div class="flex gap-4 rounded-2xl bg-gray-950/80 p-4 shadow-lg ring-1 ring-white/5 md:gap-6">
+                <div class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-xl bg-gray-900 md:h-28 md:w-28">
+                  <img src="${item.img}" alt="${item.name}" class="h-full w-full object-cover" />
+                </div>
+                <div class="flex flex-1 flex-col justify-between">
+                  <div>
+                    <h3 class="text-sm md:text-base font-semibold">${item.name}</h3>
+                    <p class="mt-1 text-xs text-gray-400">Size: M · Color: Black</p>
+                    <p class="mt-1 text-sm font-semibold text-red-500">₹${formatINR(
+                      item.price
+                    )}</p>
+                  </div>
+                  <div class="mt-3 flex items-center justify-between">
+                    <div class="inline-flex items-center gap-3 rounded-full border border-white/10 bg-gray-900 px-2 py-1">
+                      <button
+                        class="h-7 w-7 rounded-full bg-gray-800 text-sm font-semibold text-gray-100 transition hover:bg-gray-700"
+                        onclick="updateQty(${item.id}, -1)"
+                      >
+                        −
+                      </button>
+                      <span class="w-6 text-center text-sm font-semibold">${item.qty}</span>
+                      <button
+                        class="h-7 w-7 rounded-full bg-gray-800 text-sm font-semibold text-gray-100 transition hover:bg-gray-700"
+                        onclick="updateQty(${item.id}, 1)"
+                      >
+                        +
+                      </button>
+                    </div>
+                    <p class="text-sm font-semibold text-gray-100">
+                      ₹${formatINR(item.price * item.qty)}
+                    </p>
+                  </div>
+                </div>
+                <button
+                  class="self-start text-xs font-medium text-gray-500 transition hover:text-red-400"
+                  onclick="removeItem(${item.id})"
+                >
+                  Remove
+                </button>
+              </div>
+            `
+            )
+            .join("");
+        }
+
+        const subtotal = cart.reduce(
+          (sum, item) => sum + item.price * item.qty,
+          0
+        );
+        const shipping = cart.length ? 0 : 0;
+        const total = subtotal + shipping;
+
+        countEl.textContent =
+          cart.length + " item" + (cart.length !== 1 ? "s" : "") + " in cart";
+        subtotalEl.textContent = "₹" + formatINR(subtotal);
+        totalEl.textContent = "₹" + formatINR(total);
+        shippingEl.textContent = shipping === 0 ? "Free" : "₹" + shipping;
+
+        // Disable checkout link visually if cart empty
+        if (!cart.length) {
+          checkoutLink.classList.add("pointer-events-none", "bg-gray-700");
+          checkoutLink.classList.remove("hover:bg-red-700");
+        } else {
+          checkoutLink.classList.remove("pointer-events-none", "bg-gray-700");
+          checkoutLink.classList.add("hover:bg-red-700");
+        }
+      }
+
+      // Update quantity for a given item
+      window.updateQty = function (id, change) {
+        cart = cart.map((item) =>
+          item.id === id
+            ? { ...item, qty: Math.max(1, item.qty + change) }
+            : item
+        );
+        renderCart();
+      };
+
+      // Remove an item from cart
+      window.removeItem = function (id) {
+        cart = cart.filter((item) => item.id !== id);
+        renderCart();
+      };
+
+      // Initial render
+      renderCart();
+    </script>
+
+    <!-- Optional background / 3D layer -->
+    <script type="module" src="js/three-bg.js"></script>
+  </body>
+</html>

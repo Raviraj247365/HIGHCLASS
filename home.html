@@ -1,0 +1,247 @@
+<!-- home.html (alt home) -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>HIGHCLASS — Home Alt</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Tailwind CDN for prototype -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Shared global styles -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <!-- Dark theme shell -->
+  <body class="min-h-screen bg-black text-white">
+    <!-- ==========================
+         Global Site Header
+    =========================== -->
+    <header class="border-b border-white/10 bg-black/80 backdrop-blur">
+      <div
+        class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3"
+      >
+        <!-- Brand logo / lockup -->
+        <a href="index.html" class="flex items-center gap-2 group">
+          <div
+            class="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-orange-500 to-red-600 text-xs font-bold text-white shadow-lg"
+          >
+            HC
+          </div>
+
+          <div class="flex items-baseline gap-2">
+            <span
+              class="hc-brand-main text-sm font-semibold uppercase tracking-[0.3em]"
+            >
+              HIGHCLASS
+            </span>
+            <span class="hc-brand-slash text-lg text-orange-500">/</span>
+            <span
+              class="hc-brand-sub text-[0.7rem] font-medium uppercase tracking-[0.25em] text-slate-400"
+            >
+              METAWEAR
+            </span>
+          </div>
+        </a>
+
+        <!-- Center: search bar -->
+        <form class="relative hidden flex-1 max-w-sm md:block">
+          <input
+            type="search"
+            placeholder="Search products…"
+            class="w-full rounded-full border border-white/10 bg-white/5 px-9 py-1.5 text-xs text-white placeholder:text-slate-400 focus:border-orange-500 focus:outline-none"
+          />
+          <span
+            class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-xs"
+          >
+            🔍
+          </span>
+        </form>
+
+        <!-- Right side: navigation -->
+        <nav class="flex items-center gap-3 text-[0.7rem] font-medium">
+          <a href="index.html" class="hidden text-slate-300 hover:text-orange-400 md:inline">
+            Home
+          </a>
+          <a href="sub-category.html" class="text-slate-300 hover:text-orange-400">
+            Shop
+          </a>
+          <a href="category.html" class="hidden text-slate-300 hover:text-orange-400 md:inline">
+            Categories
+          </a>
+          <a href="products.html" class="hidden text-slate-300 hover:text-orange-400 md:inline">
+            Products
+          </a>
+          <a href="about.html" class="hidden text-slate-300 hover:text-orange-400 md:inline">
+            About
+          </a>
+          <a href="faq.html" class="hidden text-slate-300 hover:text-orange-400 md:inline">
+            FAQ
+          </a>
+          <a href="contact.html" class="hidden text-slate-300 hover:text-orange-400 md:inline">
+            Contact
+          </a>
+
+          <!-- Cart & account -->
+          <a href="cart.html" class="text-slate-300 hover:text-red-400">
+            Cart
+          </a>
+          <a href="account.html" class="hidden text-slate-300 hover:text-red-400 md:inline">
+            Account
+          </a>
+
+          <!-- Orders + payment (demo) -->
+          <a
+            href="orders.html"
+            class="hidden rounded-full bg-red-600 px-3 py-1 text-[0.65rem] font-semibold text-white hover:bg-red-700 md:inline"
+          >
+            Orders
+          </a>
+          <a
+            href="payment.html"
+            class="hidden rounded-full bg-red-600 px-3 py-1 text-[0.65rem] font-semibold text-white hover:bg-red-700 md:inline"
+          >
+            Payment
+          </a>
+
+          <!-- Login CTA -->
+          <a
+            href="login.html"
+            class="rounded-full bg-orange-500 px-4 py-1.5 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-black hover:bg-orange-400"
+          >
+            Login
+          </a>
+        </nav>
+      </div>
+
+      <!-- Mobile search bar -->
+      <div class="border-t border-white/10 px-4 pb-3 pt-2 md:hidden">
+        <form class="relative">
+          <input
+            type="search"
+            placeholder="Search products…"
+            class="w-full rounded-full border border-white/10 bg-white/5 px-9 py-2 text-xs text-white placeholder:text-slate-400 focus:border-orange-500 focus:outline-none"
+          />
+          <span
+            class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-xs"
+          >
+            🔍
+          </span>
+        </form>
+      </div>
+    </header>
+
+    <!-- ==========================
+         Main Content
+    =========================== -->
+    <main>
+      <!-- Hero Banner -->
+      <section
+        class="flex h-[85vh] flex-col items-center justify-center px-4 text-center"
+      >
+        <h1
+          class="text-5xl font-extrabold tracking-[0.25em] md:text-7xl md:tracking-[0.35em]"
+        >
+          WELCOME TO <span class="text-red-500">HIGHCLASS</span>
+        </h1>
+
+        <p
+          class="mt-4 max-w-2xl text-lg text-gray-300 md:text-xl"
+        >
+          Redefining fashion with premium clothing, exclusive collections, and
+          our upcoming
+          <span class="text-red-500">3D Virtual Try-On</span>
+          feature.
+        </p>
+
+        <a
+          href="products.html"
+          class="mt-8 rounded-full bg-red-600 px-10 py-3 text-lg font-semibold transition hover:bg-red-700"
+        >
+          Explore Products
+        </a>
+      </section>
+
+      <!-- Promo Section -->
+      <section class="bg-gray-950 px-6 py-20">
+        <h2 class="mb-10 text-center text-3xl font-bold">
+          Why shop at HIGHCLASS?
+        </h2>
+
+        <div
+          class="mx-auto grid max-w-6xl grid-cols-1 gap-10 md:grid-cols-3"
+        >
+          <!-- Feature 1 -->
+          <div
+            class="rounded-xl bg-gray-900 p-6 text-center shadow-lg transition hover:shadow-2xl"
+          >
+            <h3 class="mb-3 text-xl font-semibold">
+              Premium quality
+            </h3>
+            <p class="text-gray-400">
+              Every fabric is crafted with precision and luxury-grade materials.
+            </p>
+          </div>
+
+          <!-- Feature 2 -->
+          <div
+            class="rounded-xl bg-gray-900 p-6 text-center shadow-lg transition hover:shadow-2xl"
+          >
+            <h3 class="mb-3 text-xl font-semibold">
+              Exclusive designs
+            </h3>
+            <p class="text-gray-400">
+              Unique styles curated for the ultimate modern look.
+            </p>
+          </div>
+
+          <!-- Feature 3 -->
+          <div
+            class="rounded-xl bg-gray-900 p-6 text-center shadow-lg transition hover:shadow-2xl"
+          >
+            <h3 class="mb-3 text-xl font-semibold">
+              3D Try-On (soon)
+            </h3>
+            <p class="text-gray-400">
+              Preview outfits on your 3D avatar before buying.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="bg-black py-16 text-center">
+        <h2 class="text-3xl font-bold md:text-4xl">
+          Elevate your style with
+          <span class="text-red-500"> HIGHCLASS</span>
+        </h2>
+        <p class="mx-auto mt-4 max-w-xl text-gray-400">
+          Discover the latest collection and redefine your wardrobe.
+        </p>
+
+        <a
+          href="products.html"
+          class="mt-8 inline-block rounded-full bg-red-600 px-10 py-3 text-lg font-semibold transition hover:bg-red-700"
+        >
+          Start shopping
+        </a>
+      </section>
+
+      <!-- Footer -->
+      <footer
+        class="bg-gray-950 py-6 text-center text-sm text-gray-500"
+      >
+        © <span id="hc-year-alt"></span> HIGHCLASS — Luxury Clothing
+        Redefined.
+      </footer>
+    </main>
+
+    <!-- Auto year for footer -->
+    <script>
+      document.getElementById("hc-year-alt").textContent =
+        new Date().getFullYear();
+    </script>
+
+    <!-- Optional background / 3D layer -->
+    <script type="module" src="js/three-bg.js"></script>
+  </body>
+</html>

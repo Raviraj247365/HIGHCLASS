@@ -1,0 +1,259 @@
+<!-- vto-demo.html -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>HIGHCLASS — 3D Virtual Try‑On Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body class="min-h-screen bg-black text-white">
+    <!-- Global header -->
+    <header class="border-b border-white/10 bg-black/80 backdrop-blur">
+      <div
+        class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3"
+      >
+        <a href="index.html" class="flex items-center gap-2 group">
+          <div
+            class="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-orange-500 to-red-600 text-xs font-bold text-white shadow-lg"
+          >
+            HC
+          </div>
+          <div class="flex items-baseline gap-2">
+            <span
+              class="hc-brand-main text-sm font-semibold uppercase tracking-[0.3em]"
+            >
+              HIGHCLASS
+            </span>
+            <span class="hc-brand-slash text-lg text-orange-500">/</span>
+            <span
+              class="hc-brand-sub text-[0.7rem] font-medium uppercase tracking-[0.25em] text-slate-400"
+            >
+              METAWEAR
+            </span>
+          </div>
+        </a>
+
+        <form class="relative hidden flex-1 max-w-sm md:block">
+          <input
+            type="search"
+            placeholder="Search products…"
+            class="w-full rounded-full border border-white/10 bg-white/5 px-9 py-1.5 text-xs text-white placeholder:text-slate-400 focus:border-orange-500 focus:outline-none"
+          />
+          <span
+            class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-xs"
+          >
+            🔍
+          </span>
+        </form>
+
+        <nav class="flex items-center gap-3 text-[0.7rem] font-medium">
+          <a href="index.html" class="hidden text-slate-300 hover:text-orange-400 md:inline">Home</a>
+          <a href="sub-category.html" class="text-slate-300 hover:text-orange-400">Shop</a>
+          <a href="category.html" class="hidden text-slate-300 hover:text-orange-400 md:inline">Categories</a>
+          <a href="products.html" class="hidden text-slate-300 hover:text-orange-400 md:inline">Products</a>
+          <a href="about.html" class="hidden text-slate-300 hover:text-orange-400 md:inline">About</a>
+          <a href="faq.html" class="hidden text-slate-300 hover:text-orange-400 md:inline">FAQ</a>
+          <a href="contact.html" class="hidden text-slate-300 hover:text-orange-400 md:inline">Contact</a>
+          <a href="cart.html" class="text-slate-300 hover:text-red-400">Cart</a>
+          <a href="account.html" class="hidden text-slate-300 hover:text-red-400 md:inline">Account</a>
+          <a href="home.html" class="hidden text-slate-300 hover:text-orange-400 md:inline">
+            Home
+          </a>
+          <a
+            href="orders.html"
+            class="hidden rounded-full bg-red-600 px-3 py-1 text-[0.65rem] font-semibold text-white hover:bg-red-700 md:inline"
+          >
+            Orders
+          </a>
+          <a
+            href="payment.html"
+            class="hidden rounded-full bg-red-600 px-3 py-1 text-[0.65rem] font-semibold text-white hover:bg-red-700 md:inline"
+          >
+            Payment
+          </a>
+          <a
+            href="login.html"
+            class="rounded-full bg-orange-500 px-4 py-1.5 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-black hover:bg-orange-400"
+          >
+            Login
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main VTO demo -->
+    <main class="px-4 py-10">
+      <div class="mx-auto max-w-6xl grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1.4fr)]">
+        <!-- Left: explanation + current avatar URL -->
+        <section
+          class="rounded-2xl bg-gray-950/90 p-6 shadow-lg ring-1 ring-white/5 md:p-8"
+        >
+          <p class="text-xs uppercase tracking-[0.25em] text-gray-500">
+            Virtual Try‑On · Demo
+          </p>
+          <h1 class="mt-2 text-2xl font-bold md:text-3xl">
+            Link your 3D avatar
+          </h1>
+          <p class="mt-2 text-sm text-gray-400">
+            HIGHCLASS uses Ready Player Me avatars for 3D virtual try‑on. Create
+            or edit your avatar with the button on the right and we will capture
+            the avatar URL here.
+          </p>
+
+          <div class="mt-6 space-y-3 text-xs text-gray-400">
+            <p class="font-semibold text-gray-200 text-sm">
+              How this demo works
+            </p>
+            <ol class="list-decimal space-y-1 pl-4">
+              <li>Click “Open Ready Player Me”.</li>
+              <li>Create or customize your avatar and click Done.</li>
+              <li>Avatar GLB URL will appear below — used in future VTO scenes.</li>
+            </ol>
+          </div>
+
+          <div
+            class="mt-6 rounded-xl bg-gray-900/80 p-4 text-xs text-gray-300"
+          >
+            <p class="text-[11px] uppercase tracking-[0.18em] text-gray-500">
+              Avatar URL (GLB)
+            </p>
+            <p id="hc-avatar-url" class="mt-2 break-all text-[11px] text-gray-300">
+              Not linked yet. Use the creator to generate your personal avatar URL.
+            </p>
+          </div>
+
+          <p class="mt-3 text-[11px] text-gray-500">
+            In this college project MVP, the URL and fit profile are only stored
+            locally for demonstration. A production build would send them to a
+            secure backend for size suggestions and VTO. 
+          </p>
+        </section>
+
+        <!-- Right: Ready Player Me iframe panel -->
+        <section
+          class="flex flex-col rounded-2xl bg-gray-950/90 p-4 shadow-lg ring-1 ring-white/5 md:p-6"
+        >
+          <div class="flex items-center justify-between gap-3">
+            <h2 class="text-sm font-semibold text-gray-100 md:text-base">
+              Ready Player Me Creator
+            </h2>
+            <button
+              type="button"
+              id="hc-open-rpm"
+              class="rounded-full bg-red-600 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white transition hover:bg-red-700"
+            >
+              Open Ready Player Me
+            </button>
+          </div>
+
+          <p class="mt-2 text-[11px] text-gray-500">
+            A secure iframe loads the official Ready Player Me creator. Camera /
+            mic permissions are requested inside the iframe only.
+          </p>
+
+          <!-- RPM iframe -->
+          <div class="mt-4 flex-1 rounded-2xl border border-white/10 bg-black/60">
+            <iframe
+              id="hc-rpm-frame"
+              class="h-[480px] w-full rounded-2xl border-0"
+              allow="camera *; microphone *; clipboard-write"
+              hidden
+            ></iframe>
+          </div>
+
+          <p class="mt-2 text-[11px] text-gray-500">
+            If the window does not appear, check your ad‑blocker or open in a
+            new tab:
+            <a
+              id="hc-rpm-direct-link"
+              href="#"
+              target="_blank"
+              class="text-red-400 hover:text-red-300"
+            >
+              Open avatar creator
+            </a>.
+          </p>
+        </section>
+      </div>
+    </main>
+
+    <script>
+      // ---- Ready Player Me iframe integration ----
+      const subdomain = "demo"; // TODO: replace with your RPM subdomain if you have one
+      const frame = document.getElementById("hc-rpm-frame");
+      const openBtn = document.getElementById("hc-open-rpm");
+      const avatarUrlText = document.getElementById("hc-avatar-url");
+      const directLink = document.getElementById("hc-rpm-direct-link");
+
+      const rpmUrl = `https://${subdomain}.readyplayer.me/avatar?frameApi`;
+
+      frame.src = rpmUrl;
+      directLink.href = rpmUrl;
+
+      openBtn.addEventListener("click", () => {
+        frame.hidden = false;
+        frame.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+
+      window.addEventListener("message", receiveMessage);
+
+      function receiveMessage(event) {
+        let json;
+        try {
+          json = JSON.parse(event.data);
+        } catch (e) {
+          return;
+        }
+
+        if (!json || json.source !== "readyplayerme") return;
+
+        // Frame ready -> subscribe to all events
+        if (json.eventName === "v1.frame.ready") {
+          frame.contentWindow.postMessage(
+            JSON.stringify({
+              target: "readyplayerme",
+              type: "subscribe",
+              eventName: "v1.**",
+            }),
+            "*"
+          );
+        }
+
+        // Avatar exported -> get GLB URL
+        if (json.eventName === "v1.avatar.exported") {
+          const url = json.data && json.data.url;
+          if (url) {
+            avatarUrlText.textContent = url;
+            frame.hidden = true;
+
+            // FUTURE: send avatar + fit profile to backend
+            const fitProfileRaw = localStorage.getItem("highclass_fit_profile");
+            const fitProfile = fitProfileRaw ? JSON.parse(fitProfileRaw) : null;
+
+            // Example POST (URL is placeholder)
+            /*
+            fetch("/api/save-avatar-profile", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                avatarUrl: url,
+                fitProfile,
+              }),
+            }).catch(console.error);
+            */
+          }
+        }
+
+        if (json.eventName === "v1.user.set") {
+          console.log("RPM user set:", json.data && json.data.id);
+        }
+      }
+    </script>
+
+    <script type="module" src="js/three-bg.js"></script>
+  </body>
+</html>

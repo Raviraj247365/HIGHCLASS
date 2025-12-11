@@ -1,0 +1,304 @@
+<!-- about.html -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>HIGHCLASS — About Us</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Shared global styles -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <!-- Dark theme shell for the page -->
+  <body class="min-h-screen bg-black text-white">
+    <!-- ==========================
+         Global Site Header
+         (same across all pages)
+    =========================== -->
+    <header class="border-b border-white/10 bg-black/80 backdrop-blur">
+      <div
+        class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3"
+      >
+        <!-- Brand logo / lockup -->
+        <a href="index.html" class="flex items-center gap-2 group">
+          <!-- Logo mark (temporary circle) -->
+          <div
+            class="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-orange-500 to-red-600 text-xs font-bold text-white shadow-lg"
+          >
+            HC
+          </div>
+
+          <!-- Brand text: HIGHCLASS / METAWEAR -->
+          <div class="flex items-baseline gap-2">
+            <span
+              class="hc-brand-main text-sm font-semibold uppercase tracking-[0.3em]"
+            >
+              HIGHCLASS
+            </span>
+            <span class="hc-brand-slash text-lg text-orange-500">/</span>
+            <span
+              class="hc-brand-sub text-[0.7rem] font-medium uppercase tracking-[0.25em] text-slate-400"
+            >
+              METAWEAR
+            </span>
+          </div>
+        </a>
+
+        <!-- Center: search bar for products (prototype only) -->
+        <form class="relative hidden flex-1 max-w-sm md:block">
+          <input
+            type="search"
+            placeholder="Search products…"
+            class="w-full rounded-full border border-white/10 bg-white/5 px-9 py-1.5 text-xs text-white placeholder:text-slate-400 focus:border-orange-500 focus:outline-none"
+          />
+          <span
+            class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-xs"
+          >
+            🔍
+          </span>
+        </form>
+
+        <!-- Right side: main navigation -->
+        <nav class="flex items-center gap-3 text-[0.7rem] font-medium">
+          <a href="index.html" class="hidden text-slate-300 hover:text-orange-400 md:inline">
+            Home
+          </a>
+          <a href="sub-category.html" class="text-slate-300 hover:text-orange-400">
+            Shop
+          </a>
+          <a href="category.html" class="hidden text-slate-300 hover:text-orange-400 md:inline">
+            Categories
+          </a>
+          <a href="products.html" class="hidden text-slate-300 hover:text-orange-400 md:inline">
+            Products
+          </a>
+          <a href="about.html" class="text-slate-100">
+            About
+          </a>
+          <a href="faq.html" class="hidden text-slate-300 hover:text-orange-400 md:inline">
+            FAQ
+          </a>
+          <a href="contact.html" class="hidden text-slate-300 hover:text-orange-400 md:inline">
+            Contact
+          </a>
+          <a href="home.html" class="hidden text-slate-300 hover:text-orange-400 md:inline">
+            Home
+          </a>
+
+          <!-- Cart & account -->
+          <a href="cart.html" class="text-slate-300 hover:text-red-400">
+            Cart
+          </a>
+          <a href="account.html" class="hidden text-slate-300 hover:text-red-400 md:inline">
+            Account
+          </a>
+
+          <!-- Orders + payment (demo links) -->
+          <a
+            href="orders.html"
+            class="hidden rounded-full bg-red-600 px-3 py-1 text-[0.65rem] font-semibold text-white hover:bg-red-700 md:inline"
+          >
+            Orders
+          </a>
+          <a
+            href="payment.html"
+            class="hidden rounded-full bg-red-600 px-3 py-1 text-[0.65rem] font-semibold text-white hover:bg-red-700 md:inline"
+          >
+            Payment
+          </a>
+
+          <!-- Login CTA -->
+          <a
+            href="login.html"
+            class="rounded-full bg-orange-500 px-4 py-1.5 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-black hover:bg-orange-400"
+          >
+            Login
+          </a>
+        </nav>
+      </div>
+
+      <!-- Mobile search bar (visible only on small screens) -->
+      <div class="border-t border-white/10 px-4 pb-3 pt-2 md:hidden">
+        <form class="relative">
+          <input
+            type="search"
+            placeholder="Search products…"
+            class="w-full rounded-full border border-white/10 bg-white/5 px-9 py-2 text-xs text-white placeholder:text-slate-400 focus:border-orange-500 focus:outline-none"
+          />
+          <span
+            class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-xs"
+          >
+            🔍
+          </span>
+        </form>
+      </div>
+    </header>
+
+    <!-- ==========================
+         Main About Content
+         Explains brand story, mission, pillars
+    =========================== -->
+    <main class="min-h-screen bg-black px-4 py-12 text-white">
+      <div class="mx-auto max-w-6xl">
+        <!-- Hero: page title + intro -->
+        <header class="mb-12 text-center">
+          <p
+            class="text-xs uppercase tracking-[0.25em] text-gray-500"
+          >
+            Our story · Our vision
+          </p>
+          <h1
+            class="mt-2 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl"
+          >
+            HIGHCLASS: where digital meets dope
+          </h1>
+          <p
+            class="mx-auto mt-3 max-w-2xl text-sm text-gray-400 md:text-base"
+          >
+            Building the future of shopping by blending cinematic digital
+            experiences with premium, physical streetwear you actually want to
+            live in.
+          </p>
+        </header>
+
+        <!-- Mission block: why the brand exists -->
+        <section
+          class="mb-12 rounded-2xl bg-gray-950/90 p-6 shadow-lg ring-1 ring-white/5 md:p-8"
+        >
+          <h2 class="text-xl font-semibold md:text-2xl">
+            Mission: end buyer’s remorse
+          </h2>
+          <p
+            class="mt-3 text-sm text-gray-300 md:text-base"
+          >
+            Traditional online shopping is a gamble: you scroll, guess your
+            fit, wait days, and then maybe it does not feel right. HIGHCLASS
+            flips this script with virtual try‑on, avatar‑accurate sizing, and
+            honest garment visualization so every order feels intentional, not
+            impulsive.
+          </p>
+          <p
+            class="mt-2 text-sm text-gray-400 md:text-base"
+          >
+            This is more than e‑commerce. It is experiential retail designed
+            for how you actually shop across screens, worlds, and wardrobes.
+          </p>
+        </section>
+
+        <!-- Brand pillars: 3 cards explaining key values -->
+        <section class="grid gap-6 md:grid-cols-3">
+          <!-- Pillar 1: Virtual Try-On -->
+          <article
+            class="group flex flex-col justify-between rounded-2xl bg-gray-950/90 p-5 shadow-lg ring-1 ring-white/5 transition hover:-translate-y-1 hover:ring-red-500/70"
+          >
+            <div>
+              <div
+                class="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-gray-900 text-2xl"
+              >
+                ✨
+              </div>
+              <h3
+                class="text-base font-semibold text-gray-50 md:text-lg"
+              >
+                The virtual edge (VTO)
+              </h3>
+              <p class="mt-2 text-sm text-gray-400">
+                Preview fits, drape, and color on your own avatar with HIGHCLASS
+                3D Virtual Try‑On before you ever hit “buy”.
+              </p>
+            </div>
+            <span
+              class="mt-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-gray-500 group-hover:text-red-400"
+            >
+              Core pillar
+            </span>
+          </article>
+
+          <!-- Pillar 2: Quality & ethics -->
+          <article
+            class="group flex flex-col justify-between rounded-2xl bg-gray-950/90 p-5 shadow-lg ring-1 ring-white/5 transition hover:-translate-y-1 hover:ring-red-500/70"
+          >
+            <div>
+              <div
+                class="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-gray-900 text-2xl"
+              >
+                🌿
+              </div>
+              <h3
+                class="text-base font-semibold text-gray-50 md:text-lg"
+              >
+                Ethical &amp; high‑quality
+              </h3>
+              <p class="mt-2 text-sm text-gray-400">
+                Long‑lasting fabrics, responsible production, and low‑waste
+                drops so every piece earns its place in your wardrobe.
+              </p>
+            </div>
+            <span
+              class="mt-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-gray-500 group-hover:text-red-400"
+            >
+              Core pillar
+            </span>
+          </article>
+
+          <!-- Pillar 3: Digital-first -->
+          <article
+            class="group flex flex-col justify-between rounded-2xl bg-gray-950/90 p-5 shadow-lg ring-1 ring-white/5 transition hover:-translate-y-1 hover:ring-red-500/70"
+          >
+            <div>
+              <div
+                class="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-gray-900 text-2xl"
+              >
+                💻
+              </div>
+              <h3
+                class="text-base font-semibold text-gray-50 md:text-lg"
+              >
+                Digital‑first design
+              </h3>
+              <p class="mt-2 text-sm text-gray-400">
+                Every garment ships with a digital twin, ready for your avatar
+                across supported virtual worlds.
+              </p>
+            </div>
+            <span
+              class="mt-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-gray-500 group-hover:text-red-400"
+            >
+              Core pillar
+            </span>
+          </article>
+        </section>
+
+        <!-- CTA: connect to account / registration flow -->
+        <section
+          class="mt-12 rounded-2xl bg-gradient-to-r from-red-600 via-red-500 to-amber-500 p-[1px] shadow-2xl"
+        >
+          <div
+            class="h-full rounded-2xl bg-gray-950/95 px-6 py-8 text-center md:px-10"
+          >
+            <h2 class="text-2xl font-bold md:text-3xl">
+              Step into your virtual wardrobe
+            </h2>
+            <p
+              class="mx-auto mt-3 max-w-2xl text-sm text-gray-300 md:text-base"
+            >
+              Create or import your avatar, sync your measurements, and see
+              HIGHCLASS fits on your digital self before they hit your doorstep.
+            </p>
+            <a
+              href="register.html"
+              class="mt-6 inline-flex items-center justify-center rounded-full bg-white px-8 py-3 text-sm font-semibold tracking-wide text-black transition hover:bg-gray-100"
+            >
+              Create your account &amp; shop now
+            </a>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Optional background / 3D layer (safe even if JS is empty) -->
+    <script type="module" src="js/three-bg.js"></script>
+  </body>
+</html>

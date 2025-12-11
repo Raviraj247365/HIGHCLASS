@@ -1,0 +1,335 @@
+<!-- payment.html -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>HIGHCLASS — Payment</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Tailwind CDN for prototype -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body class="min-h-screen bg-black text-white">
+    <!-- ==========================
+         Global Site Header
+    =========================== -->
+    <header class="border-b border-white/10 bg-black/80 backdrop-blur">
+      <div
+        class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3"
+      >
+        <!-- Brand logo / lockup -->
+        <a href="index.html" class="flex items-center gap-2 group">
+          <div
+            class="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-orange-500 to-red-600 text-xs font-bold text-white shadow-lg"
+          >
+            HC
+          </div>
+
+          <div class="flex items-baseline gap-2">
+            <span
+              class="hc-brand-main text-sm font-semibold uppercase tracking-[0.3em]"
+            >
+              HIGHCLASS
+            </span>
+            <span class="hc-brand-slash text-lg text-orange-500">/</span>
+            <span
+              class="hc-brand-sub text-[0.7rem] font-medium uppercase tracking-[0.25em] text-slate-400"
+            >
+              METAWEAR
+            </span>
+          </div>
+        </a>
+
+        <!-- Center: search bar -->
+        <form class="relative hidden flex-1 max-w-sm md:block">
+          <input
+            type="search"
+            placeholder="Search products…"
+            class="w-full rounded-full border border-white/10 bg-white/5 px-9 py-1.5 text-xs text-white placeholder:text-slate-400 focus:border-orange-500 focus:outline-none"
+          />
+          <span
+            class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-xs"
+          >
+            🔍
+          </span>
+        </form>
+
+        <!-- Right side: navigation -->
+        <nav class="flex items-center gap-3 text-[0.7rem] font-medium">
+          <a href="index.html" class="hidden text-slate-300 hover:text-orange-400 md:inline">
+            Home
+          </a>
+          <a href="sub-category.html" class="text-slate-300 hover:text-orange-400">
+            Shop
+          </a>
+          <a href="category.html" class="hidden text-slate-300 hover:text-orange-400 md:inline">
+            Categories
+          </a>
+          <a href="products.html" class="hidden text-slate-300 hover:text-orange-400 md:inline">
+            Products
+          </a>
+          <a href="about.html" class="hidden text-slate-300 hover:text-orange-400 md:inline">
+            About
+          </a>
+          <a href="faq.html" class="hidden text-slate-300 hover:text-orange-400 md:inline">
+            FAQ
+          </a>
+          <a href="contact.html" class="hidden text-slate-300 hover:text-orange-400 md:inline">
+            Contact
+          </a>
+          <a href="home.html" class="hidden text-slate-300 hover:text-orange-400 md:inline">
+            Home
+          </a>
+
+          <!-- Cart & account -->
+          <a href="cart.html" class="text-slate-300 hover:text-red-400">
+            Cart
+          </a>
+          <a href="account.html" class="hidden text-slate-300 hover:text-red-400 md:inline">
+            Account
+          </a>
+
+          <!-- Orders + payment (demo) -->
+          <a
+            href="orders.html"
+            class="hidden rounded-full bg-red-600 px-3 py-1 text-[0.65rem] font-semibold text-white hover:bg-red-700 md:inline"
+          >
+            Orders
+          </a>
+          <a
+            href="payment.html"
+            class="rounded-full bg-red-600 px-3 py-1 text-[0.65rem] font-semibold text-white hover:bg-red-700"
+          >
+            Payment
+          </a>
+
+          <!-- Login CTA -->
+          <a
+            href="login.html"
+            class="rounded-full bg-orange-500 px-4 py-1.5 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-black hover:bg-orange-400"
+          >
+            Login
+          </a>
+        </nav>
+      </div>
+
+      <!-- Mobile search bar -->
+      <div class="border-t border-white/10 px-4 pb-3 pt-2 md:hidden">
+        <form class="relative">
+          <input
+            type="search"
+            placeholder="Search products…"
+            class="w-full rounded-full border border-white/10 bg-white/5 px-9 py-2 text-xs text-white placeholder:text-slate-400 focus:border-orange-500 focus:outline-none"
+          />
+          <span
+            class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-xs"
+          >
+            🔍
+          </span>
+        </form>
+      </div>
+    </header>
+
+    <!-- ==========================
+         Payment Content
+    =========================== -->
+    <main class="px-4 py-12">
+      <div
+        class="mx-auto max-w-4xl rounded-2xl bg-gray-950/90 p-6 shadow-xl ring-1 ring-white/5 md:p-8"
+      >
+        <!-- Title -->
+        <header class="mb-6">
+          <p
+            class="text-xs uppercase tracking-[0.25em] text-gray-500"
+          >
+            Step 3 · Payment
+          </p>
+          <h1 class="mt-1 text-3xl font-bold">
+            Choose payment method
+          </h1>
+          <p class="mt-2 text-sm text-gray-400">
+            All payments are processed securely. Select your preferred method to
+            complete your HIGHCLASS order.
+          </p>
+        </header>
+
+        <!-- Payment Options -->
+        <div id="hc-methods" class="space-y-4">
+          <!-- Razorpay -->
+          <button
+            type="button"
+            data-method="Razorpay"
+            class="hc-method flex w-full items-center gap-4 rounded-2xl border border-white/10 bg-gray-950 px-4 py-4 text-left transition hover:border-red-500/70 hover:bg-gray-900/80"
+          >
+            <span
+              class="hc-indicator flex h-5 w-5 items-center justify-center rounded-full border border-gray-500"
+            ></span>
+            <div>
+              <p class="text-sm font-semibold md:text-base">
+                Razorpay
+              </p>
+              <p class="text-xs text-gray-400">
+                Recommended for cards, UPI, and wallets in one step.
+              </p>
+            </div>
+          </button>
+
+          <!-- UPI -->
+          <button
+            type="button"
+            data-method="UPI"
+            class="hc-method flex w-full items-center gap-4 rounded-2xl border border-white/10 bg-gray-950 px-4 py-4 text-left transition hover:border-red-500/70 hover:bg-gray-900/80"
+          >
+            <span
+              class="hc-indicator flex h-5 w-5 items-center justify-center rounded-full border border-gray-500"
+            ></span>
+            <div>
+              <p class="text-sm font-semibold md:text-base">
+                UPI
+              </p>
+              <p class="text-xs text-gray-400">
+                Pay via Google Pay, PhonePe, Paytm UPI, BHIM, and more.
+              </p>
+            </div>
+          </button>
+
+          <!-- Card -->
+          <button
+            type="button"
+            data-method="Card"
+            class="hc-method flex w-full items-center gap-4 rounded-2xl border border-white/10 bg-gray-950 px-4 py-4 text-left transition hover:border-red-500/70 hover:bg-gray-900/80"
+          >
+            <span
+              class="hc-indicator flex h-5 w-5 items-center justify-center rounded-full border border-gray-500"
+            ></span>
+            <div>
+              <p class="text-sm font-semibold md:text-base">
+                Debit / Credit Card
+              </p>
+              <p class="text-xs text-gray-400">
+                Visa, Mastercard, RuPay, Amex, international cards supported.
+              </p>
+            </div>
+          </button>
+
+          <!-- COD -->
+          <button
+            type="button"
+            data-method="COD"
+            class="hc-method flex w-full items-center gap-4 rounded-2xl border border-white/10 bg-gray-950 px-4 py-4 text-left transition hover:border-red-500/70 hover:bg-gray-900/80"
+          >
+            <span
+              class="hc-indicator flex h-5 w-5 items-center justify-center rounded-full border border-gray-500"
+            ></span>
+            <div>
+              <p class="text-sm font-semibold md:text-base">
+                Cash on Delivery
+              </p>
+              <p class="text-xs text-gray-400">
+                Pay in cash/card when your HIGHCLASS order arrives.
+              </p>
+            </div>
+          </button>
+        </div>
+
+        <!-- Trust badges -->
+        <div
+          class="mt-6 flex flex-wrap items-center gap-4 text-[11px] text-gray-500"
+        >
+          <span
+            class="rounded-full border border-white/10 px-3 py-1"
+          >
+            256‑bit SSL secured
+          </span>
+          <span
+            class="rounded-full border border-white/10 px-3 py-1"
+          >
+            UPI · Cards · Wallets supported
+          </span>
+          <span
+            class="rounded-full border border-white/10 px-3 py-1"
+          >
+            No payment charges
+          </span>
+        </div>
+
+        <!-- Primary CTA (navigates to confirmation in prototype) -->
+        <a
+          id="hc-pay-link"
+          href="orderconfirmation.html"
+          class="mt-8 inline-flex w-full items-center justify-center rounded-full bg-red-600 px-4 py-3 text-sm font-semibold tracking-wide text-white transition hover:bg-red-700"
+        >
+          Select a payment method
+        </a>
+
+        <p
+          id="hc-pay-note"
+          class="mt-2 text-center text-[11px] text-gray-500"
+        >
+          You will be redirected to a secure payment gateway to complete your
+          purchase.
+        </p>
+      </div>
+    </main>
+
+    <!-- Selection logic (front-end prototype only) -->
+    <script>
+      let selectedMethod = "";
+
+      const methodButtons = Array.from(
+        document.querySelectorAll(".hc-method")
+      );
+      const payLink = document.getElementById("hc-pay-link");
+      const note = document.getElementById("hc-pay-note");
+
+      function updateUI() {
+        methodButtons.forEach((btn) => {
+          const method = btn.getAttribute("data-method");
+          const indicator = btn.querySelector(".hc-indicator");
+
+          if (method === selectedMethod) {
+            btn.classList.remove("border-white/10", "bg-gray-950");
+            btn.classList.add("border-red-500", "bg-gray-900");
+            indicator.classList.remove("border-gray-500");
+            indicator.classList.add("border-red-500", "bg-red-500");
+            indicator.innerHTML =
+              '<span class="h-2.5 w-2.5 rounded-full bg-black"></span>';
+          } else {
+            btn.classList.add("border-white/10", "bg-gray-950");
+            btn.classList.remove("border-red-500", "bg-gray-900");
+            indicator.classList.add("border-gray-500");
+            indicator.classList.remove("border-red-500", "bg-red-500");
+            indicator.innerHTML = "";
+          }
+        });
+
+        if (selectedMethod) {
+          payLink.textContent = "Pay securely with " + selectedMethod;
+          note.textContent =
+            "You will be redirected to a secure " +
+            selectedMethod +
+            " gateway to complete your purchase.";
+        } else {
+          payLink.textContent = "Select a payment method";
+          note.textContent =
+            "You will be redirected to a secure payment gateway to complete your purchase.";
+        }
+      }
+
+      methodButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          selectedMethod = btn.getAttribute("data-method") || "";
+          updateUI();
+        });
+      });
+
+      // In a real integration, here you would conditionally
+      // call Razorpay/UPI/Card flows instead of plain navigation.
+      updateUI();
+    </script>
+
+    <!-- Optional background / 3D layer -->
+    <script type="module" src="js/three-bg.js"></script>
+  </body>
+</html>

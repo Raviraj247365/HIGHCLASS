@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>HIGHCLASS — Premium Clothing & 3D Try-On</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Tailwind CSS CDN for rapid styling in prototype -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom global styles -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <!-- Main body: dark theme shell for full site -->
+  <body class="min-h-screen bg-black text-white">
+    <!-- ==========================
+         Global Site Header
+         Contains: Logo, Brand Text, Nav Links, Search, Auth Button
+    =========================== -->
+    <header class="border-b border-white/10 bg-black/80 backdrop-blur">
+      <div
+        class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3"
+      >
+        <!-- Brand logo + text lockup -->
+        <a href="index.html" class="flex items-center gap-2 group">
+          <!-- Logo mark (temporary circle; replace with real logo later) -->
+          <div
+            class="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-orange-500 to-red-600 text-xs font-bold text-white shadow-lg"
+          >
+            HC
+          </div>
+
+          <!-- Brand text: HIGHCLASS / METAWEAR -->
+          <div class="flex items-baseline gap-2">
+            <span
+              class="hc-brand-main text-sm font-semibold uppercase tracking-[0.3em]"
+            >
+              HIGHCLASS
+            </span>
+            <span class="hc-brand-slash text-lg text-orange-500">/</span>
+            <span
+              class="hc-brand-sub text-[0.7rem] font-medium uppercase tracking-[0.25em] text-slate-400"
+            >
+              METAWEAR
+            </span>
+          </div>
+        </a>
+
+        <!-- Center: product search bar -->
+        <!-- Acts as a regular search box (no backend yet, can hook JS later) -->
+        <form class="relative hidden flex-1 max-w-sm md:block">
+          <input
+            type="search"
+            placeholder="Search products…"
+            class="w-full rounded-full border border-white/10 bg-white/5 px-9 py-1.5 text-xs text-white placeholder:text-slate-400 focus:border-orange-500 focus:outline-none"
+          />
+          <!-- Magnifying glass icon inside input -->
+          <span
+            class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-xs"
+          >
+            🔍
+          </span>
+        </form>
+
+        <!-- Right side: navigation + actions -->
+        <nav class="flex items-center gap-3 text-[0.7rem] font-medium">
+          <!-- Core navigation pages -->
+          <a href="index.html" class="hidden text-slate-300 hover:text-orange-400 md:inline">
+            Home
+          </a>
+          <a href="sub-category.html" class="text-slate-300 hover:text-orange-400">
+            Shop
+          </a>
+          <a href="category.html" class="hidden text-slate-300 hover:text-orange-400 md:inline">
+            Categories
+          </a>
+          <a href="products.html" class="hidden text-slate-300 hover:text-orange-400 md:inline">
+            Products
+          </a>
+          <a href="about.html" class="hidden text-slate-300 hover:text-orange-400 md:inline">
+            About
+          </a>
+          <a href="faq.html" class="hidden text-slate-300 hover:text-orange-400 md:inline">
+            FAQ
+          </a>
+          <a href="contact.html" class="hidden text-slate-300 hover:text-orange-400 md:inline">
+            Contact
+          </a>
+          <a href="home.html" class="hidden text-slate-300 hover:text-orange-400 md:inline">
+            Home
+          </a>
+
+          <!-- Cart & Account shortcuts -->
+          <a href="cart.html" class="text-slate-300 hover:text-red-400">
+            Cart
+          </a>
+          <a href="account.html" class="hidden text-slate-300 hover:text-red-400 md:inline">
+            Account
+          </a>
+
+          <!-- Orders + Payment (for demo navigation) -->
+          <a
+            href="orders.html"
+            class="hidden rounded-full bg-red-600 px-3 py-1 text-[0.65rem] font-semibold text-white hover:bg-red-700 md:inline"
+          >
+            Orders
+          </a>
+          <a
+            href="payment.html"
+            class="hidden rounded-full bg-red-600 px-3 py-1 text-[0.65rem] font-semibold text-white hover:bg-red-700 md:inline"
+          >
+            Payment
+          </a>
+
+          <!-- Auth CTA -->
+          <a
+            href="login.html"
+            class="rounded-full bg-orange-500 px-4 py-1.5 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-black hover:bg-orange-400"
+          >
+            Login
+          </a>
+        </nav>
+      </div>
+
+      <!-- Mobile search bar (visible only on small screens) -->
+      <div class="border-t border-white/10 px-4 pb-3 pt-2 md:hidden">
+        <form class="relative">
+          <input
+            type="search"
+            placeholder="Search products…"
+            class="w-full rounded-full border border-white/10 bg-white/5 px-9 py-2 text-xs text-white placeholder:text-slate-400 focus:border-orange-500 focus:outline-none"
+          />
+          <span
+            class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-xs"
+          >
+            🔍
+          </span>
+        </form>
+      </div>
+    </header>
+
+    <!-- ==========================
+         Main Content
+    =========================== -->
+    <main>
+      <!-- Quick CTA buttons under header -->
+      <div class="mx-auto mt-8 flex max-w-6xl flex-wrap gap-3 px-4">
+        <!-- Primary CTA: go to shop / sub-categories -->
+        <a
+          href="sub-category.html"
+          class="inline-flex items-center justify-center rounded-full bg-red-600 px-6 py-2.5 text-sm font-semibold text-white hover:bg-red-700"
+        >
+          Shop the new drop
+        </a>
+
+        <!-- Scroll to collections on this page -->
+        <a
+          href="#collections"
+          class="inline-flex items-center justify-center rounded-full border border-white/20 bg-black px-6 py-2.5 text-sm font-semibold text-gray-100 hover:border-red-500 hover:text-red-400"
+        >
+          Explore collections
+        </a>
+
+        <!-- Link to static VTO demo page -->
+        <a
+          href="vto-demo.html"
+          class="inline-flex items-center justify-center rounded-full border border-white/20 bg-black px-6 py-2.5 text-sm font-semibold text-gray-100 hover:border-red-500 hover:text-red-400"
+        >
+          Try 3D VTO
+        </a>
+      </div>
+
+      <!-- ==========================
+           Hero Section
+           Explains what HIGHCLASS is and main value prop
+      =========================== -->
+      <section
+        class="relative flex min-h-[90vh] items-center justify-center px-4 py-20"
+      >
+        <!-- Background gradient overlay -->
+        <div
+          class="absolute inset-0 bg-gradient-to-b from-white/5 via-black to-black"
+        ></div>
+        <div
+          class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(248,113,113,0.18),_transparent_55%)]"
+        ></div>
+
+        <!-- Hero content -->
+        <div
+          class="relative z-10 mx-auto flex max-w-6xl flex-col items-center text-center"
+        >
+          <p
+            class="mb-3 text-xs uppercase tracking-[0.25em] text-gray-400"
+          >
+            Premium Clothing · 3D Try‑On
+          </p>
+
+          <h1
+            class="text-5xl font-extrabold tracking-[0.18em] md:text-7xl"
+          >
+            HIGH<span class="text-red-500">CLASS</span>
+          </h1>
+
+          <p
+            class="mt-4 max-w-2xl text-base text-gray-300 md:text-lg"
+          >
+            Elevated streetwear and essentials crafted for everyday luxury.
+            Experience outfits in 3D on your own avatar before you buy.
+          </p>
+
+          <!-- Hero buttons: go to products and VTO -->
+          <div
+            class="mt-8 flex flex-wrap items-center justify-center gap-4"
+          >
+            <a
+              href="products.html"
+              class="inline-flex items-center rounded-full bg-red-600 px-8 py-3 text-sm font-semibold tracking-wide transition hover:bg-red-700 md:text-base"
+            >
+              Shop the New Drop
+            </a>
+            <a
+              href="vto-demo.html"
+              class="inline-flex items-center rounded-full border border-gray-600 px-8 py-3 text-sm font-medium text-gray-200 transition hover:border-red-500 hover:text-red-400 md:text-base"
+            >
+              Try in 3D
+            </a>
+          </div>
+
+          <!-- Small trust badges -->
+          <div
+            class="mt-10 flex flex-wrap justify-center gap-6 text-xs text-gray-500"
+          >
+            <span>Worldwide shipping</span>
+            <span class="h-3 w-px bg-gray-700"></span>
+            <span>Limited runs · No restocks</span>
+            <span class="h-3 w-px bg-gray-700"></span>
+            <span>Secure checkout</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================
+           Collections Section
+           Links to men / women / unisex categories
+      =========================== -->
+      <section id="collections" class="bg-gray-950 px-6 py-16 md:py-20">
+        <div
+          class="mx-auto flex max-w-6xl items-end justify-between gap-4"
+        >
+          <div>
+            <h2 class="text-2xl font-semibold md:text-3xl">
+              Explore Collections
+            </h2>
+            <p class="mt-2 text-sm text-gray-400">
+              Curated drops for him, her, and everyone.
+            </p>
+          </div>
+          <a
+            href="products.html"
+            class="hidden text-xs font-medium uppercase tracking-[0.2em] text-gray-400 hover:text-red-400 md:inline-flex"
+          >
+            View all products
+          </a>
+        </div>
+
+        <!-- Three collection cards -->
+        <div
+          class="mx-auto mt-10 grid max-w-6xl grid-cols-1 gap-6 md:grid-cols-3"
+        >
+          <!-- Men collection card -->
+          <a
+            href="category-men.html"
+            class="group relative h-64 overflow-hidden rounded-2xl bg-[url('https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1200&q=80')] bg-cover bg-center"
+          >
+            <div
+              class="absolute inset-0 bg-black/40 transition group-hover:bg-black/65"
+            ></div>
+            <div
+              class="absolute inset-0 flex flex-col justify-between p-5"
+            >
+              <span
+                class="self-start rounded-full bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.18em] text-gray-200"
+              >
+                Men
+              </span>
+              <div>
+                <p class="text-lg font-semibold">
+                  Tailored street essentials
+                </p>
+                <p class="text-xs text-gray-300">
+                  Tees · Hoodies · Outerwear
+                </p>
+              </div>
+            </div>
+          </a>
+
+          <!-- Women collection card -->
+          <a
+            href="category-women.html"
+            class="group relative h-64 overflow-hidden rounded-2xl bg-[url('https://images.unsplash.com/photo-1520975928318-3e88f5819c66?auto=format&fit=crop&w=1200&q=80')] bg-cover bg-center"
+          >
+            <div
+              class="absolute inset-0 bg-black/40 transition group-hover:bg-black/65"
+            ></div>
+            <div
+              class="absolute inset-0 flex flex-col justify-between p-5"
+            >
+              <span
+                class="self-start rounded-full bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.18em] text-gray-200"
+              >
+                Women
+              </span>
+              <div>
+                <p class="text-lg font-semibold">
+                  Minimal, bold silhouettes
+                </p>
+                <p class="text-xs text-gray-300">
+                  Co‑ords · Dresses · Layers
+                </p>
+              </div>
+            </div>
+          </a>
+
+          <!-- Unisex collection card -->
+          <a
+            href="category-unisex.html"
+            class="group relative h-64 overflow-hidden rounded-2xl bg-[url('https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1200&q=80')] bg-cover bg-center"
+          >
+            <div
+              class="absolute inset-0 bg-black/40 transition group-hover:bg-black/65"
+            ></div>
+            <div
+              class="absolute inset-0 flex flex-col justify-between p-5"
+            >
+              <span
+                class="self-start rounded-full bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.18em] text-gray-200"
+              >
+                Unisex
+              </span>
+              <div>
+                <p class="text-lg font-semibold">
+                  Signature HIGHCLASS cuts
+                </p>
+                <p class="text-xs text-gray-300">
+                  Caps · Tees · Everyday wear
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- ==========================
+           Virtual Try-On Teaser
+           Explains planned 3D feature (Three.js)
+      =========================== -->
+      <section
+        class="border-t border-white/5 bg-black px-6 py-16"
+      >
+        <div
+          class="mx-auto flex max-w-6xl flex-col gap-10 md:flex-row md:items-center"
+        >
+          <!-- Text block: feature description -->
+          <div class="flex-1">
+            <p
+              class="text-xs uppercase tracking-[0.25em] text-red-400"
+            >
+              3D Virtual Try‑On
+            </p>
+            <h3 class="mt-3 text-2xl font-semibold md:text-3xl">
+              See fits on your own avatar before checkout.
+            </h3>
+            <p
+              class="mt-3 text-sm text-gray-300 md:text-base"
+            >
+              Create a 3D avatar in seconds, switch outfits, and
+              preview colors in real time. This prototype reserves space
+              for a future Three.js viewer integration.
+            </p>
+            <a
+              href="vto-demo.html"
+              class="mt-6 inline-flex text-sm font-medium text-red-400 hover:text-red-300"
+            >
+              Start your 3D try‑on →
+            </a>
+          </div>
+
+          <!-- Visual placeholder for future 3D canvas -->
+          <div class="flex-1">
+            <div
+              class="relative aspect-video overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-gray-900 via-black to-gray-950"
+            >
+              <div
+                class="absolute inset-0 bg-[radial-gradient(circle_at_20%_0,_rgba(248,113,113,0.25),_transparent_55%)]"
+              ></div>
+              <div
+                class="relative z-10 flex h-full items-center justify-center text-xs text-gray-400"
+              >
+                <!-- Placeholder note where Three.js canvas will sit -->
+                <span
+                  class="rounded-full border border-dashed border-gray-600 px-4 py-2"
+                >
+                  3D Avatar Viewer (Three.js canvas placeholder)
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================
+           Global Footer
+      =========================== -->
+      <footer
+        class="border-t border-white/5 py-6 text-center text-xs text-gray-500"
+      >
+        © <span id="hc-year"></span> HIGHCLASS · All rights reserved.
+      </footer>
+    </main>
+
+    <!-- Small script: auto-update footer year -->
+    <script>
+      document.getElementById("hc-year").textContent =
+        new Date().getFullYear();
+    </script>
+
+    <!-- Optional background/3D script (safe even if empty) -->
+    <script type="module" src="js/three-bg.js"></script>
+  </body>
+</html>

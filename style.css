@@ -1,0 +1,478 @@
+/* =========================================================
+   GLOBAL STYLES (affects ALL pages)
+   Files: ALL .html (home, sub-category, search, cart, etc.)
+   Purpose: Reset, base typography, dark theme, helpers
+   ========================================================*/
+
+/* Basic box-sizing reset for consistent layout across elements */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin/padding from html/body */
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Smooth scroll for in-page anchor links (e.g. #collections) */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Global font + dark background shell */
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Display",
+    "Inter", "Segoe UI", sans-serif;
+  background-color: #000;
+  color: #fff;
+}
+
+/* Optional wrapper class to apply dark shell on specific layouts */
+.hc-page {
+  min-height: 100vh;
+  background-color: #000;
+  color: #fff;
+}
+
+/* Shared small section label text (e.g., "3D Virtual Try-On") */
+.hc-section-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: #6b7280;
+}
+
+/* Custom thin scrollbar on desktop for a more premium feel */
+@media (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #020617;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #27272a;
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #4b5563;
+  }
+}
+
+/* Fullscreen Three.js background canvas hook
+   Used when js/three-bg.js attaches a WebGL scene to body */
+.hc-three-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Example product background helpers (used on product highlight cards) */
+.product-1-bg {
+  background-image: url("https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=900&q=80");
+}
+
+.product-2-bg {
+  background-image: url("https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?auto=format&fit=crop&w=900&q=80");
+}
+
+.product-3-bg {
+  background-image: url("https://images.unsplash.com/photo-1523381294911-8d3cead13475?auto=format&fit=crop&w=900&q=80");
+}
+
+/* =========================================================
+   BRAND LOCKUP (logo + HIGHCLASS / METAWEAR text)
+   Files: ALL pages (navbar header)
+   Purpose: Keep brand colors consistent everywhere
+   ========================================================*/
+
+/* Design tokens for HIGHCLASS theme */
+:root {
+  --hc-bg: #020617;
+  --hc-surface: #030712;
+  --hc-text: #f9fafb;
+  --hc-accent: #f97316;       /* orange accent */
+  --hc-accent-strong: #ea580c;
+  --hc-accent-soft: #fed7aa;
+}
+
+/* Apply design tokens to body + optional .hc-page wrapper */
+body,
+.hc-page {
+  background-color: var(--hc-bg);
+  color: var(--hc-text);
+}
+
+/* MAIN brand text “HIGHCLASS” */
+.hc-brand-main {
+  color: var(--hc-text);
+}
+
+/* Slash between HIGHCLASS / METAWEAR */
+.hc-brand-slash {
+  color: var(--hc-accent);
+}
+
+/* Sub-label “METAWEAR” */
+.hc-brand-sub {
+  color: #9ca3af;
+}
+
+/* On hover, slightly warm up the full lockup */
+a:hover .hc-brand-main {
+  color: #fefce8;
+}
+
+a:hover .hc-brand-slash {
+  color: var(--hc-accent-strong);
+}
+
+a:hover .hc-brand-sub {
+  color: #d1d5db;
+}
+
+/* =========================================================
+   (Optional) SEARCH BAR POLISH
+   Files: Header search in all pages
+   Purpose: minor tweaks if you want custom class-based styling
+   ========================================================*/
+
+/* Wrapper style if you ever use a custom .hc-search-input outside Tailwind */
+.hc-search-input {
+  border-radius: 999px;              /* pill shape */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 0.4rem 0.9rem 0.4rem 1.6rem; /* left padding for icon space */
+  font-size: 0.75rem;
+  color: #f9fafb;
+}
+
+/* Placeholder text styling inside custom search input */
+.hc-search-input::placeholder {
+  color: #9ca3af;
+}
+
+/* Focus ring color for custom search input */
+.hc-search-input:focus {
+  outline: none;
+  border-color: var(--hc-accent);
+}
+
+/* For tiny magnifying glass emoji/icon if wrapped in .hc-search-icon */
+.hc-search-icon {
+  position: absolute;
+  left: 0.65rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.7rem;
+  pointer-events: none;
+}
+
+/* =========================================================
+   SUB-CATEGORY PAGE
+   File: sub-category.html
+   Purpose: layout helpers for product grids
+   ========================================================*/
+
+.subcategory-hero {
+  /* Extra spacing / style for subcategory header area */
+  margin-bottom: 2.5rem;
+}
+
+/* Custom grid for sub-category cards (if not using pure Tailwind) */
+.subcategory-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .subcategory-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 768px) {
+  .subcategory-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .subcategory-grid {
+    gap: 2.5rem;
+  }
+}
+
+/* Hover elevation on category cards */
+.subcategory-card {
+  transition: box-shadow 200ms ease, transform 200ms ease;
+}
+
+.subcategory-card:hover {
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.85);
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   SEARCH PAGE
+   File: search.html
+   Purpose: hero spacing + optional rounded search box
+   ========================================================*/
+
+.search-hero {
+  /* Centered search heading spacing adjustments */
+  margin-bottom: 1.5rem;
+}
+
+/* Optional: slightly larger border-radius than Tailwind default */
+.search-input {
+  border-radius: 999px;
+}
+
+/* =========================================================
+   CART PAGE
+   File: cart.html
+   Purpose: sticky order summary + highlighted total
+   ========================================================*/
+
+.cart-summary {
+  /* Base: not sticky on mobile */
+  position: static;
+}
+
+@media (min-width: 768px) {
+  .cart-summary {
+    position: sticky;
+    top: 2rem;
+  }
+}
+
+/* Extra glow on the final total amount */
+.cart-total-amount {
+  text-shadow: 0 0 18px rgba(248, 113, 113, 0.6);
+}
+
+/* =========================================================
+   CHECKOUT PAGE
+   File: checkout.html
+   Purpose: center checkout form + highlight summary
+   ========================================================*/
+
+.checkout-form {
+  /* Center the form in non-Tailwind layouts */
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Border highlight for order summary panel */
+.checkout-summary {
+  border: 1px solid rgba(248, 113, 113, 0.15);
+}
+
+/* =========================================================
+   PAYMENT PAGE
+   File: payment.html
+   Purpose: visual feedback for active payment method
+   ========================================================*/
+
+.payment-method-card {
+  cursor: pointer;
+}
+
+/* Stronger glow when JS marks a method as active */
+.payment-method-card--active {
+  box-shadow: 0 0 25px rgba(248, 113, 113, 0.4);
+}
+
+/* Hover border feedback on payment options */
+.payment-method-card:hover {
+  border-color: rgba(248, 113, 113, 0.4);
+}
+
+/* =========================================================
+   ORDER CONFIRMATION PAGE
+   File: orderconfirmation.html
+   Purpose: small spacing utilities
+   ========================================================*/
+
+.order-confirm-hero {
+  /* Slight spacing in confirmation card */
+  margin-bottom: 1rem;
+}
+
+/* =========================================================
+   LOGIN PAGE
+   File: login.html
+   Purpose: center login card + subtle hover border
+   ========================================================*/
+
+.login-card {
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Example: subtle border glow on hover */
+.login-card:hover {
+  border-color: rgba(248, 113, 113, 0.4);
+}
+
+/* =========================================================
+   REGISTER PAGE
+   File: register.html
+   Purpose: matching style with login card
+   ========================================================*/
+
+.register-card {
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.register-card:hover {
+  border-color: rgba(248, 113, 113, 0.4);
+}
+
+/* =========================================================
+   ACCOUNT DASHBOARD
+   File: account.html
+   Purpose: profile card & dashboard nav hover effects
+   ========================================================*/
+
+.account-profile-card {
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Hover elevation for dashboard nav cards */
+.account-nav-card {
+  transition: box-shadow 200ms ease, transform 200ms ease;
+}
+
+.account-nav-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.85);
+}
+
+/* =========================================================
+   ORDER HISTORY PAGE
+   File: order.html
+   Purpose: emphasize individual past orders on hover
+   ========================================================*/
+
+.order-card {
+  transition: box-shadow 200ms ease, transform 200ms ease;
+}
+
+.order-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px rgba(198, 19, 28, 0.8);
+}
+
+/* =========================================================
+   ABOUT PAGE
+   File: about.html
+   Purpose: hero glow behind mission text
+   ========================================================*/
+
+.about-hero {
+  position: relative;
+}
+
+/* Soft red glow behind hero text block */
+.about-hero::before {
+  content: "";
+  position: absolute;
+  inset: -80px -40px auto;
+  background: radial-gradient(circle at 50% 0%, #ef4444, transparent 60%);
+  opacity: 0.35;
+  filter: blur(24px);
+  z-index: -1;
+}
+
+/* =========================================================
+   CONTACT PAGE
+   File: contact.html
+   Purpose: rounded contact card container
+   ========================================================*/
+
+.contact-card {
+  border-radius: 1.5rem;
+}
+
+/* =========================================================
+   FAQ PAGE
+   File: faq.html
+   Purpose: accordion spacing + open-state icon rotation
+   ========================================================*/
+
+.faq-accordion-item + .faq-accordion-item {
+  margin-top: 0.25rem;
+}
+
+/* If you add .is-open via JS, rotate the chevron icon */
+.faq-accordion-item.is-open .faq-icon {
+  transform: rotate(90deg);
+}
+
+/* =========================================================
+   TERMS PAGE
+   File: terms.html
+   Purpose: better reading line-height
+   ========================================================*/
+
+.terms-section {
+  line-height: 1.6;
+}
+
+/* =========================================================
+   404 PAGE
+   File: 404.html
+   Purpose: simple centered panel styling
+   ========================================================*/
+
+.notfound-hero {
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+  background-image: linear-gradient(to bottom, #111827, #020617);
+  border-radius: 1.5rem;
+}
+
+/* =========================================================
+   500 PAGE
+   File: 500.html
+   Purpose: error card shell with hover border
+   ========================================================*/
+
+.error500-card {
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 1.5rem;
+  transition: border-color 200ms ease;
+}
+
+.error500-card:hover {
+  border-color: rgba(248, 113, 113, 0.4);
+}
+/* Utility: hide text visually but keep for screen-readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

@@ -1,0 +1,468 @@
+<!-- profile-fit.html -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>HIGHCLASS — Fit & Avatar Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body class="min-h-screen bg-black text-white">
+    <!-- Global header -->
+    <header class="border-b border-white/10 bg-black/80 backdrop-blur">
+      <div
+        class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3"
+      >
+        <a href="index.html" class="flex items-center gap-2 group">
+          <div
+            class="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-orange-500 to-red-600 text-xs font-bold text-white shadow-lg"
+          >
+            HC
+          </div>
+          <div class="flex items-baseline gap-2">
+            <span
+              class="hc-brand-main text-sm font-semibold uppercase tracking-[0.3em]"
+            >
+              HIGHCLASS
+            </span>
+            <span class="hc-brand-slash text-lg text-orange-500">/</span>
+            <span
+              class="hc-brand-sub text-[0.7rem] font-medium uppercase tracking-[0.25em] text-slate-400"
+            >
+              METAWEAR
+            </span>
+          </div>
+        </a>
+
+        <form class="relative hidden flex-1 max-w-sm md:block">
+          <input
+            type="search"
+            placeholder="Search products…"
+            class="w-full rounded-full border border-white/10 bg-white/5 px-9 py-1.5 text-xs text-white placeholder:text-slate-400 focus:border-orange-500 focus:outline-none"
+          />
+          <span
+            class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-xs"
+          >
+            🔍
+          </span>
+        </form>
+
+        <nav class="flex items-center gap-3 text-[0.7rem] font-medium">
+          <a href="index.html" class="hidden text-slate-300 hover:text-orange-400 md:inline">Home</a>
+          <a href="sub-category.html" class="text-slate-300 hover:text-orange-400">Shop</a>
+          <a href="category.html" class="hidden text-slate-300 hover:text-orange-400 md:inline">Categories</a>
+          <a href="products.html" class="hidden text-slate-300 hover:text-orange-400 md:inline">Products</a>
+          <a href="about.html" class="hidden text-slate-300 hover:text-orange-400 md:inline">About</a>
+          <a href="faq.html" class="hidden text-slate-300 hover:text-orange-400 md:inline">FAQ</a>
+          <a href="contact.html" class="hidden text-slate-300 hover:text-orange-400 md:inline">Contact</a>
+          <a href="cart.html" class="text-slate-300 hover:text-red-400">Cart</a>
+          <a href="account.html" class="hidden text-slate-300 hover:text-red-400 md:inline">Account</a>
+          <a href="home.html" class="hidden text-slate-300 hover:text-orange-400 md:inline">
+            Home
+          </a>
+          <a
+            href="orders.html"
+            class="hidden rounded-full bg-red-600 px-3 py-1 text-[0.65rem] font-semibold text-white hover:bg-red-700 md:inline"
+          >
+            Orders
+          </a>
+          <a
+            href="payment.html"
+            class="hidden rounded-full bg-red-600 px-3 py-1 text-[0.65rem] font-semibold text-white hover:bg-red-700 md:inline"
+          >
+            Payment
+          </a>
+          <a
+            href="login.html"
+            class="rounded-full bg-orange-500 px-4 py-1.5 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-black hover:bg-orange-400"
+          >
+            Login
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="px-4 py-10">
+      <div class="mx-auto max-w-6xl grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1.4fr)]">
+        <!-- Left: photo + identity -->
+        <section
+          class="rounded-2xl bg-gray-950/90 p-6 shadow-lg ring-1 ring-white/5 md:p-8"
+        >
+          <p class="text-xs uppercase tracking-[0.25em] text-gray-500">
+            Step 1 · You
+          </p>
+          <h1 class="mt-2 text-2xl font-bold md:text-3xl">
+            Build your fit & avatar profile
+          </h1>
+          <p class="mt-2 text-sm text-gray-400">
+            A few optional details about your body help HIGHCLASS suggest better
+            sizes and more realistic virtual try‑on.
+          </p>
+
+          <!-- Upload photo -->
+          <div class="mt-6">
+            <p class="text-xs font-medium uppercase tracking-[0.18em] text-gray-400">
+              Upload photo (optional)
+            </p>
+            <p class="mt-1 text-[11px] text-gray-500">
+              A clear front‑facing photo helps future AI fit models. For this
+              demo, the image is not uploaded to any server.
+            </p>
+
+            <label
+              for="hc-photo"
+              class="mt-3 flex cursor-pointer flex-col items-center justify-center rounded-2xl border border-dashed border-white/15 bg-gray-900/60 px-4 py-6 text-center hover:border-red-500/60"
+            >
+              <div
+                id="hc-photo-preview"
+                class="mb-3 flex h-24 w-24 items-center justify-center overflow-hidden rounded-2xl bg-gray-950 text-gray-500"
+              >
+                <span class="text-2xl">📷</span>
+              </div>
+              <p class="text-xs font-semibold text-gray-100">
+                Click to upload a photo
+              </p>
+              <p class="mt-1 text-[11px] text-gray-500">
+                JPG or PNG · Max ~5 MB
+              </p>
+              <input id="hc-photo" type="file" accept="image/*" class="hidden" />
+            </label>
+          </div>
+
+          <!-- Gender + age -->
+          <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 text-sm">
+            <div>
+              <label
+                for="hc-gender"
+                class="mb-1 block text-xs font-medium uppercase tracking-[0.18em] text-gray-400"
+              >
+                Gender
+              </label>
+              <select
+                id="hc-gender"
+                class="w-full rounded-lg border border-white/10 bg-gray-900 px-3 py-2 text-sm text-gray-100 focus:outline-none focus:ring-2 focus:ring-red-500"
+              >
+                <option value="">Prefer not to say</option>
+                <option value="female">Woman</option>
+                <option value="male">Man</option>
+                <option value="nonbinary">Non‑binary</option>
+                <option value="custom">Custom</option>
+              </select>
+            </div>
+
+            <div>
+              <label
+                for="hc-age"
+                class="mb-1 block text-xs font-medium uppercase tracking-[0.18em] text-gray-400"
+              >
+                Age (years)
+              </label>
+              <input
+                id="hc-age"
+                type="number"
+                min="10"
+                max="90"
+                placeholder="22"
+                class="w-full rounded-lg border border-white/10 bg-gray-900 px-3 py-2 text-sm text-gray-100 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500"
+              />
+            </div>
+          </div>
+        </section>
+
+        <!-- Right: body metrics -->
+        <section
+          class="rounded-2xl bg-gray-950/90 p-6 shadow-lg ring-1 ring-white/5 md:p-8"
+        >
+          <p class="text-xs uppercase tracking-[0.25em] text-gray-500">
+            Step 2 · Body profile
+          </p>
+          <h2 class="mt-2 text-lg font-semibold md:text-xl">
+            Height, build, skin tone & measurements
+          </h2>
+          <p class="mt-2 text-xs text-gray-400">
+            These fields are optional but recommended for more accurate fit
+            suggestions. You can adjust them anytime.
+          </p>
+
+          <!-- Height / weight / build -->
+          <div class="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-3 text-sm">
+            <div>
+              <label
+                for="hc-height"
+                class="mb-1 block text-xs font-medium uppercase tracking-[0.18em] text-gray-400"
+              >
+                Height (cm)
+              </label>
+              <input
+                id="hc-height"
+                type="number"
+                min="130"
+                max="210"
+                placeholder="175"
+                class="w-full rounded-lg border border-white/10 bg-gray-900 px-3 py-2 text-sm text-gray-100 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500"
+              />
+            </div>
+            <div>
+              <label
+                for="hc-weight"
+                class="mb-1 block text-xs font-medium uppercase tracking-[0.18em] text-gray-400"
+              >
+                Weight (kg)
+              </label>
+              <input
+                id="hc-weight"
+                type="number"
+                min="40"
+                max="140"
+                placeholder="70"
+                class="w-full rounded-lg border border-white/10 bg-gray-900 px-3 py-2 text-sm text-gray-100 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500"
+              />
+            </div>
+            <div>
+              <label
+                for="hc-build"
+                class="mb-1 block text-xs font-medium uppercase tracking-[0.18em] text-gray-400"
+              >
+                Body build
+              </label>
+              <select
+                id="hc-build"
+                class="w-full rounded-lg border border-white/10 bg-gray-900 px-3 py-2 text-sm text-gray-100 focus:outline-none focus:ring-2 focus:ring-red-500"
+              >
+                <option value="">Select</option>
+                <option value="slim">Slim</option>
+                <option value="athletic">Athletic</option>
+                <option value="average">Average</option>
+                <option value="broad">Broad / Plus</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Skin tone -->
+          <div class="mt-6">
+            <p class="text-xs font-medium uppercase tracking-[0.18em] text-gray-400">
+              Skin tone
+            </p>
+            <p class="mt-1 text-[11px] text-gray-500">
+              Pick the closest tone; future versions can map this to avatar
+              materials automatically.
+            </p>
+            <div
+              id="hc-skin-tone-group"
+              class="mt-3 flex flex-wrap gap-2"
+            >
+              <button
+                type="button"
+                data-tone="porcelain"
+                class="hc-skin-tone h-9 min-w-[3.2rem] rounded-full border border-white/10 bg-[#f6e2d3] text-[10px] font-medium text-black/70"
+              >
+                Porcelain
+              </button>
+              <button
+                type="button"
+                data-tone="light"
+                class="hc-skin-tone h-9 min-w-[3.2rem] rounded-full border border-white/10 bg-[#f0c8a0] text-[10px] font-medium text-black/70"
+              >
+                Light
+              </button>
+              <button
+                type="button"
+                data-tone="medium"
+                class="hc-skin-tone h-9 min-w-[3.2rem] rounded-full border border-white/10 bg-[#d59a6b] text-[10px] font-medium text-black/80"
+              >
+                Medium
+              </button>
+              <button
+                type="button"
+                data-tone="tan"
+                class="hc-skin-tone h-9 min-w-[3.2rem] rounded-full border border-white/10 bg-[#b47345] text-[10px] font-medium text-white/90"
+              >
+                Tan
+              </button>
+              <button
+                type="button"
+                data-tone="deep"
+                class="hc-skin-tone h-9 min-w-[3.2rem] rounded-full border border-white/10 bg-[#7a4a2a] text-[10px] font-medium text-white"
+              >
+                Deep
+              </button>
+              <button
+                type="button"
+                data-tone="rich"
+                class="hc-skin-tone h-9 min-w-[3.2rem] rounded-full border border-white/10 bg-[#4b2b18] text-[10px] font-medium text-white"
+              >
+                Rich
+              </button>
+            </div>
+          </div>
+
+          <!-- Optional measurements -->
+          <div class="mt-6">
+            <p class="text-xs font-medium uppercase tracking-[0.18em] text-gray-400">
+              Optional measurements (cm)
+            </p>
+            <p class="mt-1 text-[11px] text-gray-500">
+              Add if you know them; helpful for fitted shirts, hoodies and
+              bottoms.
+            </p>
+            <div class="mt-3 grid grid-cols-2 gap-3 text-sm md:grid-cols-4">
+              <div>
+                <label
+                  for="hc-chest"
+                  class="mb-1 block text-[11px] text-gray-400"
+                  >Chest</label
+                >
+                <input
+                  id="hc-chest"
+                  type="number"
+                  min="70"
+                  max="140"
+                  placeholder="96"
+                  class="w-full rounded-lg border border-white/10 bg-gray-900 px-2 py-2 text-xs text-gray-100 placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-red-500"
+                />
+              </div>
+              <div>
+                <label
+                  for="hc-waist"
+                  class="mb-1 block text-[11px] text-gray-400"
+                  >Waist</label
+                >
+                <input
+                  id="hc-waist"
+                  type="number"
+                  min="60"
+                  max="130"
+                  placeholder="80"
+                  class="w-full rounded-lg border border-white/10 bg-gray-900 px-2 py-2 text-xs text-gray-100 placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-red-500"
+                />
+              </div>
+              <div>
+                <label
+                  for="hc-bicep"
+                  class="mb-1 block text-[11px] text-gray-400"
+                  >Bicep</label
+                >
+                <input
+                  id="hc-bicep"
+                  type="number"
+                  min="20"
+                  max="55"
+                  placeholder="32"
+                  class="w-full rounded-lg border border-white/10 bg-gray-900 px-2 py-2 text-xs text-gray-100 placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-red-500"
+                />
+              </div>
+              <div>
+                <label
+                  for="hc-neck"
+                  class="mb-1 block text-[11px] text-gray-400"
+                  >Neck</label
+                >
+                <input
+                  id="hc-neck"
+                  type="number"
+                  min="30"
+                  max="50"
+                  placeholder="38"
+                  class="w-full rounded-lg border border-white/10 bg-gray-900 px-2 py-2 text-xs text-gray-100 placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-red-500"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+            <button
+              id="hc-save-profile"
+              type="button"
+              class="flex-1 rounded-full bg-red-600 py-3 text-sm font-semibold tracking-wide text-white transition hover:bg-red-700"
+            >
+              Save fit profile (demo)
+            </button>
+            <a
+              href="vto-demo.html"
+              class="flex-1 rounded-full border border-white/15 py-3 text-center text-sm font-semibold tracking-wide text-gray-200 transition hover:border-red-500 hover:text-red-400"
+            >
+              Continue to 3D try‑on
+            </a>
+          </div>
+
+          <p id="hc-save-note" class="mt-3 text-[11px] text-gray-500">
+            In this prototype, your profile is saved only in this browser
+            session. A real app would store it in your account securely.
+          </p>
+        </section>
+      </div>
+    </main>
+
+    <!-- Simple front-end state (no backend yet) -->
+    <script>
+      // Skin tone toggle
+      const toneButtons = Array.from(
+        document.querySelectorAll(".hc-skin-tone")
+      );
+      let selectedTone = "";
+
+      toneButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          selectedTone = btn.dataset.tone || "";
+          toneButtons.forEach((b) => {
+            b.classList.remove("ring-2", "ring-red-500");
+          });
+          btn.classList.add("ring-2", "ring-red-500");
+        });
+      });
+
+      // Photo preview (local only)
+      const photoInput = document.getElementById("hc-photo");
+      const photoPreview = document.getElementById("hc-photo-preview");
+
+      photoInput.addEventListener("change", () => {
+        const file = photoInput.files && photoInput.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          photoPreview.innerHTML = "";
+          const img = document.createElement("img");
+          img.src = e.target.result;
+          img.alt = "Profile photo preview";
+          img.className = "h-full w-full object-cover";
+          photoPreview.appendChild(img);
+        };
+        reader.readAsDataURL(file);
+      });
+
+      // Demo save (localStorage)
+      const saveBtn = document.getElementById("hc-save-profile");
+      const saveNote = document.getElementById("hc-save-note");
+
+      saveBtn.addEventListener("click", () => {
+        const profile = {
+          gender: document.getElementById("hc-gender").value,
+          age: document.getElementById("hc-age").value,
+          height: document.getElementById("hc-height").value,
+          weight: document.getElementById("hc-weight").value,
+          build: document.getElementById("hc-build").value,
+          skinTone: selectedTone,
+          chest: document.getElementById("hc-chest").value,
+          waist: document.getElementById("hc-waist").value,
+          bicep: document.getElementById("hc-bicep").value,
+          neck: document.getElementById("hc-neck").value,
+        };
+
+        localStorage.setItem("highclass_fit_profile", JSON.stringify(profile));
+
+        saveNote.textContent =
+          "Profile saved locally for this browser. You can now continue to 3D try‑on or shopping.";
+        saveNote.classList.remove("text-gray-500");
+        saveNote.classList.add("text-emerald-400");
+      });
+    </script>
+
+    <script type="module" src="js/three-bg.js"></script>
+  </body>
+</html>
