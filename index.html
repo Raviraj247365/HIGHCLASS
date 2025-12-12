@@ -44,6 +44,16 @@
             </span>
           </div>
         </a>
+        <a href="cart.html" class="relative text-slate-300 hover:text-red-400">
+  Cart
+  <span
+    id="hc-cart-badge"
+    class="hidden absolute -right-3 -top-2 flex h-4 min-w-[1rem] items-center justify-center rounded-full bg-red-600 px-1 text-[10px] font-semibold text-white"
+  >
+    0
+  </span>
+</a>
+
 
         <!-- Center: product search bar -->
         <!-- Acts as a regular search box (no backend yet, can hook JS later) -->
@@ -65,7 +75,7 @@
         <nav class="flex items-center gap-3 text-[0.7rem] font-medium">
           <!-- Core navigation pages -->
           <a href="index.html" class="hidden text-slate-300 hover:text-orange-400 md:inline">
-            Home
+            Welcome
           </a>
           <a href="sub-category.html" class="text-slate-300 hover:text-orange-400">
             Shop
@@ -422,6 +432,12 @@
       document.getElementById("hc-year").textContent =
         new Date().getFullYear();
     </script>
+    <div
+  id="hc-cart-toast"
+  class="pointer-events-none fixed bottom-4 left-1/2 z-40 -translate-x-1/2 translate-y-3 rounded-full bg-white/10 px-4 py-2 text-xs text-gray-100 opacity-0 shadow-lg backdrop-blur transition"
+>
+</div>
+
 
     <!-- Optional background/3D script (safe even if empty) -->
     <script type="module" src="js/three-bg.js"></script>
